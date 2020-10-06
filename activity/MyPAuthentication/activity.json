@@ -10,7 +10,7 @@
         "smallIcon": "myp.ico",
         "description": "This activity generates the MyPreferences authentication using sha256"
     },
-    "ref": "authentication/activity/MyPAuthentication",
+    "ref": "github.com/jecabreraa/flogo-components/activity/MyPAuthentication",
     "inputs": [
         {
             "name": "key",
