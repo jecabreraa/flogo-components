@@ -1,0 +1,63 @@
+{
+    "name": "MyPAuthentication",
+    "title": "Generate MyPreferences authentication header",
+    "version": "0.1.0",
+    "type": "flogo:activity",
+    "author": "jorge cabrera",
+    "display": {
+        "category": "Authentication",
+        "visible": true,
+        "smallIcon": "myp.ico",
+        "description": "This activity generates the MyPreferences authentication using sha256"
+    },
+    "ref": "authentication/activity/MyPAuthentication",
+    "inputs": [
+        {
+            "name": "key",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Authentication key",
+              "description": "Key to generate authentication hash",
+              "type": "string"
+            },
+        },
+        {
+            "name": "client id",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "Client id",
+              "description": "MyPreferences client id",
+              "type": "string"
+            },
+        },
+        {
+            "name": "user id",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "User id",
+              "description": "MyPreferences user id",
+              "type": "string"
+            },
+        },
+		{
+            "name": "timestamp",
+            "type": "string",
+            "required": true,
+            "display":{
+              "name": "time stamp (for testing)",
+              "description": "Hard coded timestamp for testing purposes",
+              "type": "string"
+            },
+        }
+
+    ],
+    "outputs": [
+        {
+            "name": "authentication header",
+            "type": "string"
+        }
+    ]
+}
