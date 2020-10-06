@@ -20,7 +20,7 @@
               "name": "Authentication key",
               "description": "Key to generate authentication hash",
               "type": "string"
-            },
+            }
         },
         {
             "name": "client id",
@@ -30,7 +30,7 @@
               "name": "Client id",
               "description": "MyPreferences client id",
               "type": "string"
-            },
+            }
         },
         {
             "name": "user id",
@@ -40,7 +40,7 @@
               "name": "User id",
               "description": "MyPreferences user id",
               "type": "string"
-            },
+            }
         },
 		{
             "name": "timestamp",
@@ -50,7 +50,7 @@
               "name": "time stamp (for testing)",
               "description": "Hard coded timestamp for testing purposes",
               "type": "string"
-            },
+            }
         }
 
     ],
