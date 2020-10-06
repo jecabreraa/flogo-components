@@ -5,7 +5,7 @@
     "type": "flogo:activity",
     "author": "jorge cabrera",
     "display": {
-        "category": "Authentication",
+        "category": "MyPreferences",
         "visible": true,
         "smallIcon": "myp.ico",
         "description": "This activity generates the MyPreferences authentication using sha256"
@@ -45,7 +45,7 @@
 		{
             "name": "timestamp",
             "type": "string",
-            "required": true,
+            "required": false,
             "display":{
               "name": "time stamp (for testing)",
               "description": "Hard coded timestamp for testing purposes",
