@@ -34,8 +34,7 @@
         },
         {
             "name": "mypusername",
-            "type": "string",
-            "required": true,
+            "type": "string",            "required": true,
 			"value": "",
             "display":{
               "name": "User name",
@@ -46,7 +45,6 @@
             "name": "timestamp",
             "type": "string",
             "required": false,
-			"value": "",
             "display":{
               "name": "time stamp (for testing)",
               "description": "Hard coded timestamp for testing purposes"
