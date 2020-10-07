@@ -56,7 +56,7 @@
     ],
     "output": [
         {
-            "name": "authentication header",
+            "name": "authHeader",
             "type": "string"
         }
     ]

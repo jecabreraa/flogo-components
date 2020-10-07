@@ -15,7 +15,7 @@ const (
 	ivClientId = "mypclientid"
 	ivUserName = "mypusername"
 	ivTS = "timestamp"
-	ovResult = "result"
+	ovResult = "authHeader"
 )
 
 
