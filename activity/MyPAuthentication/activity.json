@@ -23,7 +23,7 @@
             }
         },
         {
-            "name": "client id",
+            "name": "clientid",
             "type": "string",
             "required": true,
             "display":{
@@ -33,12 +33,12 @@
             }
         },
         {
-            "name": "user id",
+            "name": "username",
             "type": "string",
             "required": true,
             "display":{
-              "name": "User id",
-              "description": "MyPreferences user id",
+              "name": "User name",
+              "description": "MyPreferences user name",
               "type": "string"
             }
         },

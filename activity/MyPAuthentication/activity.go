@@ -12,9 +12,9 @@ import (
 
 const (
 	ivField1 = "key"
-	ivField2 = "clientId"
-	ivField3 = "userName"
-	ivField4 = "timeStamp"
+	ivField2 = "clientid"
+	ivField3 = "username"
+	ivField4 = "timestamp"
 	ovResult = "result"
 )
 
