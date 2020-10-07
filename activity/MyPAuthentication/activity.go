@@ -45,7 +45,7 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 		return false, activity.NewError("Key is not configured", "MYPAUTH-4001", nil)
 	}
 	key := context.GetInput(ivField1).(string)
-	activityLog.Info(key)
+	activityLog.Info(ivField2)
 
 	if context.GetInput(ivField2) == nil {
 		// client id is not configured
