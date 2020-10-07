@@ -63,11 +63,11 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 	if context.GetInput(ivField4) == nil {
 		// Not testing.  Calculate actual time stamp.
 		rfc3339Time := time.Now().Format(time.RFC3339)
-		timeStamp := rfc3339Time[:strings.Index(rfc3339Time, "Z")]
+		timestamp := rfc3339Time[:strings.Index(rfc3339Time, "Z")]
 	} else {
 		timestamp := context.GetInput(ivField4).(string)
 	}
-	authHeader := "PNAUTHINFO3-HMAC-sha256 Credential=" + userName + "/" + timeStamp + " Signature=" + generateHash(key, clientid + ":" + username + ":" + timeStamp)
+	authHeader := "PNAUTHINFO3-HMAC-sha256 Credential=" + username + "/" + timestamp + " Signature=" + generateToken(key, clientid + ":" + username + ":" + timestamp)
 	
 	context.SetOutput(ovResult, authHeader)
 	
