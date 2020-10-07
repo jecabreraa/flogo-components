@@ -46,12 +46,12 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 	}
 	key := context.GetInput(ivKey).(string)
 
-	if context.GetInput("mypclientid") == nil {
+	if context.GetInput(ivClientId) == nil {
 		// client id is not configured
 		// return error to the engine
 		return false, activity.NewError("Client id is not configured", "MYPAUTH-4002", nil)
 	}
-	clientid := context.GetInput("mypclientid").(string)
+	clientid := context.GetInput(ivClientId).(string)
 	activityLog.Info(clientid)
 
 	if context.GetInput(ivUserName) == nil {
