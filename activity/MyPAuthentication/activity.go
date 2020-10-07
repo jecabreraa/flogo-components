@@ -12,8 +12,8 @@ import (
 
 const (
 	ivField1 = "key"
-	ivField2 = "clientid"
-	ivField3 = "username"
+	ivField2 = "mypclientid"
+	ivField3 = "mypusername"
 	ivField4 = "timestamp"
 	ovResult = "result"
 )

@@ -23,7 +23,7 @@
             }
         },
         {
-            "name": "clientid",
+            "name": "mypclientid",
             "type": "string",
             "required": true,
             "display":{
@@ -33,7 +33,7 @@
             }
         },
         {
-            "name": "username",
+            "name": "mypusername",
             "type": "string",
             "required": true,
             "display":{
