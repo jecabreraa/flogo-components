@@ -62,9 +62,8 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 
 	if context.GetInput(ivField4) == nil {
 		// Not testing.  Calculate actual time stamp.
-		currentTime := time.Now()
-		rfc3339Time := currentTime.Format(time.RFC3339)
-		timeStamp := rfc3339Time.value[:strings.Index(rfc3339Time, "Z")]
+		rfc3339Time := time.Now().Format(time.RFC3339)
+		timeStamp := rfc3339Time[:strings.Index(rfc3339Time, "Z")]
 	} else {
 		timestamp := context.GetInput(ivField4).(string)
 	}
