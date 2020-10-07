@@ -63,8 +63,7 @@ func (a *MyPAuthenticationActivity) Eval(ctx activity.Context) (done bool, err e
 		currentTime := time.Now()
 		rfc3339Time := currentTime.Format(time.RFC3339)
 		timeStamp := rfc3339Time.value[:strings.Index(rfc3339Time, "Z")]
-	}
-	else {
+	} else {
 		timestamp := context.GetInput(ivField4).(string)
 	}
 	authHeader := "PNAUTHINFO3-HMAC-sha256 Credential=" + userName + "/" + timeStamp + " Signature=" + generateHash(key, clientid + ":" + username + ":" + timeStamp)
