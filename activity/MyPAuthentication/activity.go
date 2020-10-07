@@ -4,6 +4,8 @@ import (
     "crypto/hmac"
     "crypto/sha256"
     b64 "encoding/base64"
+	"strings"
+	"time"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
@@ -32,7 +34,7 @@ func (a *MyPAuthenticationActivity) Metadata() *activity.Metadata {
 }
 
 // Eval implements api.Activity.Eval - Create the hash
-func (a *MyPAuthenticationActivity) Eval(ctx activity.Context) (done bool, err error) {
+func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, err error) {
 
 	activityLog.Info("Executing MyPreferences authentication activity")
 
