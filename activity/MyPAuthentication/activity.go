@@ -60,12 +60,14 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 	}
 	username := context.GetInput(ivField3).(string)
 
+	var timestamp string
+	
 	if context.GetInput(ivField4) == nil {
 		// Not testing.  Calculate actual time stamp.
 		rfc3339Time := time.Now().Format(time.RFC3339)
-		timestamp := rfc3339Time[:strings.Index(rfc3339Time, "Z")]
+		timestamp = rfc3339Time[:strings.Index(rfc3339Time, "Z")]
 	} else {
-		timestamp := context.GetInput(ivField4).(string)
+		timestamp = context.GetInput(ivField4).(string)
 	}
 	authHeader := "PNAUTHINFO3-HMAC-sha256 Credential=" + username + "/" + timestamp + " Signature=" + generateToken(key, clientid + ":" + username + ":" + timestamp)
 	
