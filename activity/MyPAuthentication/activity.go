@@ -60,7 +60,7 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 	}
 	username := context.GetInput(ivUserName).(string)
 	
-	timestamp := time.Now().Add(time.Second * -10).Format(time.RFC3339)
+	timestamp := time.Now().Add(time.Second * -30).Format(time.RFC3339)
 
 	authHeader := "PNAUTHINFO3-HMAC-sha256 Credential=" + username + "/" + timestamp + " Signature=" + generateToken(key, clientid + ":" + username + ":" + timestamp)
 	
