@@ -4,7 +4,6 @@ import (
     "crypto/hmac"
     "crypto/sha256"
     b64 "encoding/base64"
-	"strings"
 	"time"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
