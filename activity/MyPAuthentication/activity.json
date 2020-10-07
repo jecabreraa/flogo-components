@@ -1,7 +1,7 @@
 {
     "name": "MyPAuthentication",
     "title": "Generate MyPreferences authentication header",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "type": "flogo:activity",
     "author": "jorge cabrera",
     "display": {
@@ -39,15 +39,6 @@
             "display":{
               "name": "User name",
               "description": "MyPreferences user name"
-            }
-        },
-		{
-            "name": "timestamp",
-            "type": "string",
-            "required": false,
-            "display":{
-              "name": "time stamp (for testing)",
-              "description": "Hard coded timestamp for testing purposes"
             }
         }
 

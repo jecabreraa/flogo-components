@@ -60,18 +60,9 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 		return false, activity.NewError("User name is not configured", "MYPAUTH-4003", nil)
 	}
 	username := context.GetInput(ivUserName).(string)
-
-	var timestamp string
 	
-//	if context.GetInput(ivTS) == nil {
-		// Not testing.  Calculate actual time stamp.
-		rfc3339Time := time.Now().Format(time.RFC3339)
-		activityLog.Info(rfc3339Time)
-		timestamp = rfc3339Time[:strings.Index(rfc3339Time, "Z")]
-		activityLog.Info(timestamp)
-//	} else {
-//		timestamp = context.GetInput(ivTS).(string)
-//	}
+	timestamp := time.Now().Format(time.RFC3339)
+
 	authHeader := "PNAUTHINFO3-HMAC-sha256 Credential=" + username + "/" + timestamp + " Signature=" + generateToken(key, clientid + ":" + username + ":" + timestamp)
 	
 	context.SetOutput(ovResult, authHeader)
