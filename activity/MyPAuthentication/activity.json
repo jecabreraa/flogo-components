@@ -18,7 +18,7 @@
             "required": true,
             "display":{
               "name": "Authentication key",
-              "description": "Key to generate authentication hash",
+              "description": "Key to generate authentication hash"
             }
         },
         {
@@ -27,7 +27,7 @@
             "required": true,
             "display":{
               "name": "Client id",
-              "description": "MyPreferences client id",
+              "description": "MyPreferences client id"
             }
         },
         {
@@ -36,7 +36,7 @@
             "required": true,
             "display":{
               "name": "User name",
-              "description": "MyPreferences user name",
+              "description": "MyPreferences user name"
             }
         },
 		{
@@ -45,7 +45,7 @@
             "required": false,
             "display":{
               "name": "time stamp (for testing)",
-              "description": "Hard coded timestamp for testing purposes",
+              "description": "Hard coded timestamp for testing purposes"
             }
         }
 
