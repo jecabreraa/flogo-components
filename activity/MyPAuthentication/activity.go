@@ -35,7 +35,7 @@ func (a *MyPAuthenticationActivity) Metadata() *activity.Metadata {
 func (a *MyPAuthenticationActivity) Eval(ctx activity.Context) (done bool, err error) {
 
 	activityLog.Info("Executing MyPreferences authentication activity")
-}
+
 
 	if context.GetInput(ivField1) == nil {
 		// key is not configured
