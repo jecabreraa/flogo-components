@@ -11,10 +11,10 @@ import (
 )
 
 const (
-	ivField1 = "key"
-	ivField2 = "mypclientid"
-	ivField3 = "mypusername"
-	ivField4 = "timestamp"
+	ivKey = "key"
+	ivClientId = "mypclientid"
+	ivUserName = "mypusername"
+	ivTS = "timestamp"
 	ovResult = "result"
 )
 
@@ -39,36 +39,36 @@ func (a *MyPAuthenticationActivity) Eval(context activity.Context) (done bool, e
 	activityLog.Info("Executing MyPreferences authentication activity")
 
 
-	if context.GetInput(ivField1) == nil {
+	if context.GetInput(ivKey) == nil {
 		// key is not configured
 		// return error to the engine
 		return false, activity.NewError("Key is not configured", "MYPAUTH-4001", nil)
 	}
-	key := context.GetInput(ivField1).(string)
+	key := context.GetInput(ivKey).(string)
 
-	//if context.GetInput(ivField2) == nil {
+	if context.GetInput(ivClientId) == nil {
 		// client id is not configured
 		// return error to the engine
-	//	return false, activity.NewError("Client id is not configured", "MYPAUTH-4002", nil)
-	//}
-	clientid := context.GetInput(ivField2).(string)
-	activityLog.Info(clientid)
+		return false, activity.NewError("Client id is not configured", "MYPAUTH-4002", nil)
+	}
+	clientid := context.GetInput(ivClientId).(string)
+	activityLog.Info(ivClientId)
 
-	if context.GetInput(ivField3) == nil {
+	if context.GetInput(ivUserName) == nil {
 		// username is not configured
 		// return error to the engine
 		return false, activity.NewError("User name is not configured", "MYPAUTH-4003", nil)
 	}
-	username := context.GetInput(ivField3).(string)
+	username := context.GetInput(ivUserName).(string)
 
 	var timestamp string
 	
-	if context.GetInput(ivField4) == nil {
+	if context.GetInput(ivTS) == nil {
 		// Not testing.  Calculate actual time stamp.
 		rfc3339Time := time.Now().Format(time.RFC3339)
 		timestamp = rfc3339Time[:strings.Index(rfc3339Time, "Z")]
 	} else {
-		timestamp = context.GetInput(ivField4).(string)
+		timestamp = context.GetInput(ivTS).(string)
 	}
 	authHeader := "PNAUTHINFO3-HMAC-sha256 Credential=" + username + "/" + timestamp + " Signature=" + generateToken(key, clientid + ":" + username + ":" + timestamp)
 	
