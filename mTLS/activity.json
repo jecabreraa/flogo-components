@@ -5,7 +5,7 @@
     "type": "flogo:activity",
     "author": "jorge cabrera",
     "display": {
-        "category": "MyPreferences",
+        "category": "HTTP",
         "visible": true,
         "smallIcon": "myp.ico",
         "description": "This activity POST data using mTLS"
@@ -13,39 +13,49 @@
     "ref": "github.com/jecabreraa/flogo-components/activity/mTLS",
     "input": [
         {
+            "name": "endPoint",
+            "type": "string",
+            "required": true,
+			"value": "",
+            "display":{
+              "name": "Endpoint URL",
+              "description": "Endpoint receiving the POST"
+            }
+        },
+        {
+            "name": "requestBody",
+            "type": "string",
+            "required": true,
+			"value": "",
+            "display":{
+              "name": "Request body",
+              "description": "Body to be POSTED"
+            }
+        },
+        {
+            "name": "cert",
+            "type": "string",
+            "required": true,
+			"value": "",
+            "display":{
+              "name": "Certificate",
+              "description": "The certificate for TLS"
+            }
+        },
+        {
             "name": "key",
             "type": "string",
             "required": true,
 			"value": "",
             "display":{
-              "name": "Authentication key",
-              "description": "Key to generate authentication hash"
-            }
-        },
-        {
-            "name": "mypclientid",
-            "type": "string",
-            "required": true,
-			"value": "",
-            "display":{
-              "name": "Client id",
-              "description": "MyPreferences client id"
-            }
-        },
-        {
-            "name": "mypusername",
-            "type": "string",            "required": true,
-			"value": "",
-            "display":{
-              "name": "User name",
-              "description": "MyPreferences user name"
+              "name": "Private key",
+              "description": "The privete key for TLS"
             }
         }
-
     ],
     "output": [
         {
-            "name": "authHeader",
+            "name": "responseCode",
             "type": "string"
         }
     ]
