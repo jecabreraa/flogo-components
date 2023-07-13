@@ -4,12 +4,10 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"log"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
-	"strings"
 	"time"
 	"bytes"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
@@ -65,7 +63,7 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 		// return error to the engine
 		return false, activity.NewError("No certificate", "MYPAUTH-401", nil)
 	}
-	username := context.GetInput(ivUserName).(string)
+	certificate := context.GetInput(ivCert).(string)
 
 	if context.GetInput(ivKey) == nil {
 		// key is not configured
@@ -74,8 +72,8 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 	}
 	key := context.GetInput(ivKey).(string)
 
-	certPem := []byte(ivCert)
-	keyPem := []byte(ivKey)
+	certPem := []byte(certificate)
+	keyPem := []byte(key)
 
 	cert, err := tls.X509KeyPair(certPem, keyPem)
 	if err != nil {
@@ -95,9 +93,9 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 		},
 	}
 
-	jsonBody := []byte(ivRequestBody)
+	jsonBody := []byte(requestBody)
 	bodyReader := bytes.NewReader(jsonBody)
-	requestURL := fmt.Sprintf(ivEndPoint)
+	requestURL := fmt.Sprintf(endPoint)
 	
 
 	req, err := client.NewRequest(http.MethodPost, requestURL, bodyReader)
