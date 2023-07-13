@@ -81,7 +81,7 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 	}
 	
 	caCertPool := x509.NewCertPool()
-	caCertPool.a(certPem)
+	caCertPool.AppendCertsFromPEM(certPem)
 	
 	// Create a HTTPS client and supply the created CA pool and certificate
 	client := &http.Client{
