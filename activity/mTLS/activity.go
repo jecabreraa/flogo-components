@@ -96,7 +96,7 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 	requestURL := fmt.Sprintf(endPoint)
 	
 
-	req, err := client.Post(requestURL, "application/json", bodyReader)
+	res, err := client.Post(requestURL, "application/json", bodyReader)
 	if err != nil {
 		log.Fatal("client: could not create request: %s\n", err)
 		return false, activity.NewError("client: error making http request: %s\n", "MYPAUTH-500", nil)
