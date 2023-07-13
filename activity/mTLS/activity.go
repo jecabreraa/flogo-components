@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"time"
 	"bytes"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
@@ -81,7 +80,7 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 	}
 	
 	caCertPool := x509.NewCertPool()
-+	caCertPool.AppendCertsFromPEM(certPem)
+	caCertPool.AppendCertsFromPEM(certPem)
 	
 	// Create a HTTPS client and supply the created CA pool and certificate
 	client := &http.Client{
@@ -98,7 +97,7 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 	requestURL := fmt.Sprintf(endPoint)
 	
 
-	req, err := client.NewRequest(http.MethodPost, requestURL, bodyReader)
+	req, err := client.Post(requestURL, "application/json", bodyReader)
 	if err != nil {
 		log.Fatal("client: could not create request: %s\n", err)
 		return false, activity.NewError("client: could not create request: %s\n", "MYPAUTH-500", nil)
