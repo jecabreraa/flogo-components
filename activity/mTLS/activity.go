@@ -99,15 +99,8 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 	req, err := client.Post(requestURL, "application/json", bodyReader)
 	if err != nil {
 		log.Fatal("client: could not create request: %s\n", err)
-		return false, activity.NewError("client: could not create request: %s\n", "MYPAUTH-500", nil)
-	}
-
-	res, err := http.DefaultClient.Do(req)
-	if err != nil {
-		log.Fatal("client: error making http request: %s\n", err)
 		return false, activity.NewError("client: error making http request: %s\n", "MYPAUTH-500", nil)
 	}
-
 
 	activityLog.Info("client: got response!\n")
 	activityLog.Info("client: status code: %d\n", res.StatusCode)
