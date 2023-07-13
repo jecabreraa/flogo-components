@@ -15,7 +15,7 @@ import (
 const (
 	ivEndPoint = "endPoint"
 	ivRequestBody = "requestBody"
-	ivCert = "cert"
+	ivCert = "certificate"
 	ivKey = "key"
 	ovResult = "responseCode"
 )
@@ -59,21 +59,23 @@ func (a *mTLS) Eval(context activity.Context) (done bool, err error) {
 	if context.GetInput(ivCert) == nil {
 		// certificate is not configured
 		// return error to the engine
-		return false, activity.NewError("No certificate", "MYPAUTH-401", nil)
+		return false, activity.NewError("No certificate", "mTLS-401", nil)
 	}
 	certificate := context.GetInput(ivCert).(string)
+	activityLog.Info(certificate)
 
 	if context.GetInput(ivKey) == nil {
 		// key is not configured
 		// return error to the engine
-		return false, activity.NewError("No key", "MYPAUTH-401", nil)
+		return false, activity.NewError("No key", "mTLS-401", nil)
 	}
 	key := context.GetInput(ivKey).(string)
+	activityLog.Info(key)
 
 	certPem := []byte(certificate)
 	keyPem := []byte(key)
 
-	cert, err := tls.X509KeyPair(certPem, keyPem)
+	cert, err := tls.LoadX509KeyPair(certPem, keyPem)
 	if err != nil {
 		log.Fatal(err)
 	}

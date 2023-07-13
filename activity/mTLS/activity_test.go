@@ -39,7 +39,7 @@ func TestEval(t *testing.T) {
 	//setup attrs
 	tc.SetInput("endPoint", "https://api-t.cloud.pge.com/on/customercare/v1/UpdateNotificationPreferences")
 	tc.SetInput("requestBody", '{"customerPreferences":[{"action":"ADD","channel":"EML","entity":"ACCT","entityId":"1456135911","categoryType":"APTNOTIFY","personId":"9403239805","type":"PRIM","updateIdInfo":"MXUR","updateSource":"CSRO"}]}')
-	tc.SetInput("cert", "-----BEGIN CERTIFICATE-----
+	tc.SetInput("certificate", "-----BEGIN CERTIFICATE-----
 MIIDiTCCAnGgAwIBAgIUONdzxRaBefQDbjRMU+P2+JIG0y4wDQYJKoZIhvcNAQEL
 BQAwUzELMAkGA1UEBhMCVVMxEDAOBgNVBAgMB0dlb3JnaWExDzANBgNVBAcMBkR1
 bHV0aDEhMB8GA1UEAwwYUEdFLVBOLU11dHVhbEF1dGhTdGFnaW5nMCAXDTIzMDcw

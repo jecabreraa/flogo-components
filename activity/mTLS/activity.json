@@ -33,7 +33,7 @@
             }
         },
         {
-            "name": "cert",
+            "name": "certificate",
             "type": "string",
             "required": true,
 			"value": "",
